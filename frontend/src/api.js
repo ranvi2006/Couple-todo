@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:3000/api", // backend URL
+  baseURL: "https://couple-todo-psa2.onrender.com", // backend URL
 });
 
 export default API;
