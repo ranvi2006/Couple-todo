@@ -7,7 +7,9 @@ import Todo from "./models/Todo.js";
 dotEnv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ["https://your-vercel-domain.vercel.app"]
+}));
 app.use(express.json());
 
 // 🔗 Connect to MongoDB
