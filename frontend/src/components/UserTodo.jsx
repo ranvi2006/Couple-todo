@@ -10,7 +10,7 @@ import {
   Cell,
 } from "recharts";
 
-const API_URL = "http://localhost:3000/api";
+const API_URL = "https://couple-todo-psa2.onrender.com/api";
 
 export default function UserTodo({ user, date, isPast }) {
   const [task, setTask] = useState("");
@@ -40,10 +40,12 @@ export default function UserTodo({ user, date, isPast }) {
   const addTodo = async () => {
     if (!task.trim()) return;
     try {
+      console.log(API_URL)
       await axios.post(`${API_URL}/todo`, { user, task, date });
       setTask("");
       loadData(); // refresh after add
-    } catch {
+    } catch(err) {
+      console.log("Erroe,", err);
       alert("❌ Cannot add task for past days");
     }
   };
